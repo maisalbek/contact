@@ -1,14 +1,17 @@
 import React from 'react';
 import './Onetodo.css'
 
-const Onetodo = ({item, deleteTodo, funcForEdit, changeStatus}) => {
+const Onetodo = ({item, deleteTodo, funcForEdit}) => {
     return (
-        <li  className={item.status ? 'completed' : ''}>
-            <input type="checkbox" onChange={()=>changeStatus(item.id)}/>
-            {item.title}
-
+        <li>
+            <div className='card'>
+            <p>Name: {item.title}</p>
+            <p>Phone: {item.phone}</p>
+            <div>
             <button onClick={()=>deleteTodo(item.id)}>Del</button>
-            <button onClick={()=>funcForEdit(item)} disabled={item.status ? true : false}>Edit</button>
+            <button onClick={()=>funcForEdit(item)}>Edit</button>
+            </div>
+            </div>
         </li>
     );
 };

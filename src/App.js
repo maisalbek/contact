@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import Conditions from './components/conditions/Conditions';
-import Props from './components/props/Props' 
-import State from './components/state/State';
 import Addtodo from './components/todo/addtodo/Addtodo';
 import Edittodo from './components/todo/edittodo/Edittodo';
 import Todolist from './components/todo/todolist/Todolist';
@@ -42,19 +39,10 @@ function App() {
       )
     setWorks(arr)
   }
-const changeStatus = (id)=>{
-  let arr = works.map(item=>{
-    if(item.id===id){
-      item.status = !item.status
-    }
-    return item
-  })
-  setWorks(arr)
-}
   return (
     <div className="App">
       <Addtodo funcForadding={funcForadding} />
-     <Todolist changeStatus={changeStatus} deleteTodo={deleteTodo} works={works} funcForEdit={funcForEdit} />
+     <Todolist deleteTodo={deleteTodo} works={works} funcForEdit={funcForEdit} />
      {
        editModal ? <Edittodo setEditModal={setEditModal} saveEdit={saveEdit} currentWord={currentWord} /> : null
      }
